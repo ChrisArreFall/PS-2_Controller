@@ -1,6 +1,6 @@
 module keyboard_controller(input logic CLK,
 									input logic PS2_CLK,
-									input logic PS2_DATA,
+									input logic  [7:0] PS2_DATA,
 									output logic [7:0] pressedKey);
 					//Codigos ps/2
 					//https://wiki.osdev.org/PS/2_Keyboard
@@ -108,7 +108,8 @@ module keyboard_controller(input logic CLK,
 						end
 					//-----------------------------------------------------------------------------------------------
 
-					//-----------Aqui escalo la frecuencia del CLK de 50Mhz a la del PS/2----------------------------
+					//---Aqui aplico el error correction ya que si el bit de error esta en 1 entonces se-------------
+					//---deshace del codigo recibido, si no hay errores, ya tenemos el codigo correcto---------------
 					always @(posedge CLK) 
 						begin
 							if (TEMP_PS2_CLK) 
