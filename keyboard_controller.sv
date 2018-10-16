@@ -1,5 +1,5 @@
 module keyboard_controller(input logic CLK,
-									input logic PS2_clk,
+									input logic PS2_CLK,
 									input logic PS2_DATA,
 									output logic [7:0] pressedKey);
 					//Codigos ps/2
@@ -9,18 +9,20 @@ module keyboard_controller(input logic CLK,
 					localparam  [7:0] ARROW_LEFT 		= 8'h6B;
 					localparam  [7:0] ARROW_RIGHT 	= 8'h74;	
 					localparam  [7:0] SPACE 			= 8'h29;	
-					localparam  [7:0] CLK_DIVISION   = 2500;
+					localparam  [7:0] CLK_DIVISION   = 250;
+					localparam  [7:0] N_BITS         = 11;
+					localparam  [16:0] TIME_LIMIT    = 4000;
 					//falta probar estos codigos y lo mejor seria sacar esto del modulo para hacerlo generico
 					
 					//--------------------------Iniciamos creando variables-----------------------------------------
 					logic READ;				
 					logic [11:0] READ_COUNT;		
 					logic PREVIOUS_STATE;			
-					logic scan_err;				
-					logic [10:0] scan_code;			
+					logic ERROR_BIT;				
+					logic [10:0] RECIVIED_CODE;			
 					logic [7:0] CODEWORD;			
-					logic TRIG_ARR;				
-					logic [3:0]COUNT;				
+					logic COMPLETED_DATA;				
+					logic [3:0]BITS_COUNT;				
 					logic TEMP_PS2_CLK = 0;			
 					logic [7:0]CLK_COUNTER = 0;
 			      //----------------------------------------------------------------------------------------------		
@@ -28,9 +30,9 @@ module keyboard_controller(input logic CLK,
 					//---------------------Le damos valor inicial a las variables-----------------------------------
 					initial begin
 						PREVIOUS_STATE = 1;		
-						scan_err = 0;		
-						scan_code = 0;
-						COUNT = 0;			
+						ERROR_BIT = 0;		
+						RECIVIED_CODE = 0;
+						BITS_COUNT = 0;			
 						CODEWORD = 0;
 						pressedKey = 0;
 						READ = 0;
@@ -67,41 +69,41 @@ module keyboard_controller(input logic CLK,
 					//----------------------------------------------------------------------------------------------	
 					
 
-					//-----------Aqui escalo la frecuencia del CLK de 50Mhz a la del PS/2---------------------------
+					//---Aqui reviso si ya nos llego todos los bits del codigo y tambien revisamos si hay errores---
 					always_ff @(posedge CLK) 
 						begin		
 							if (TEMP_PS2_CLK) 
 								begin						
-									if (PS2_clk != PREVIOUS_STATE) 
+									if (PS2_CLK != PREVIOUS_STATE) 
 										begin		
-											if (!PS2_clk) 
+											if (!PS2_CLK) 
 												begin				
 													READ <= 1;				
-													scan_err <= 0;				
-													scan_code[10:0] <= {PS2_DATA, scan_code[10:1]};	
-													COUNT <= COUNT + 1;			
+													ERROR_BIT <= 0;				
+													RECIVIED_CODE[N_BITS-1:0] <= {PS2_DATA, RECIVIED_CODE[N_BITS-1:1]};	
+													BITS_COUNT <= BITS_COUNT + 1;			
 												end
 										end
-									else if (COUNT == 11) 
+									else if (BITS_COUNT == N_BITS) 
 										begin				
-											COUNT <= 0;
+											BITS_COUNT <= 0;
 											READ <= 0;					
-											TRIG_ARR <= 1;					
-											if (!scan_code[10] || scan_code[0] || !(scan_code[1]^scan_code[2]^scan_code[3]^scan_code[4]^scan_code[5]^scan_code[6]^scan_code[7]^scan_code[8]^scan_code[9]))
-												scan_err <= 1;
+											COMPLETED_DATA <= 1;					
+											if (!RECIVIED_CODE[N_BITS-1] || RECIVIED_CODE[0] || !(RECIVIED_CODE[1]^RECIVIED_CODE[2]^RECIVIED_CODE[3]^RECIVIED_CODE[4]^RECIVIED_CODE[5]^RECIVIED_CODE[6]^RECIVIED_CODE[7]^RECIVIED_CODE[8]^RECIVIED_CODE[9]))
+												ERROR_BIT <= 1;
 											else 
-												scan_err <= 0;
+												ERROR_BIT <= 0;
 										end	
 									else  
 										begin						
-											TRIG_ARR <= 0;					
-											if (COUNT < 11 && READ_COUNT >= 4000) 
+											COMPLETED_DATA <= 0;					
+											if (BITS_COUNT < N_BITS && READ_COUNT >= TIME_LIMIT) 
 												begin	
-													COUNT <= 0;				
+													BITS_COUNT <= 0;				
 													READ <= 0;				
 												end
 										end
-										PREVIOUS_STATE <= PS2_clk;				
+										PREVIOUS_STATE <= PS2_CLK;	//esto guarda el estado anterior del clk del ps2			
 								end
 						end
 					//-----------------------------------------------------------------------------------------------
@@ -111,15 +113,15 @@ module keyboard_controller(input logic CLK,
 						begin
 							if (TEMP_PS2_CLK) 
 								begin					
-									if (TRIG_ARR)
+									if (COMPLETED_DATA)
 										begin				
-											if (scan_err) 
+											if (ERROR_BIT) 
 												begin			
 													CODEWORD <= 8'd0;		
 												end
 											else 
 												begin
-													CODEWORD <= scan_code[8:1];	
+													CODEWORD <= RECIVIED_CODE[8:1];	
 												end				
 										end					
 									else 
@@ -132,7 +134,7 @@ module keyboard_controller(input logic CLK,
 					//-----------Aqui escalo la frecuencia del CLK de 50Mhz a la del PS/2----------------------------
 					always_ff @(posedge CLK) 
 						begin
-							pressedKey<=scan_code[8:1];			
+							pressedKey<=RECIVIED_CODE[8:1];			
 							if (CODEWORD == ARROW_UP)				
 								pressedKey <= pressedKey + 1;	
 							else if (CODEWORD == ARROW_DOWN)			
