@@ -2,17 +2,11 @@ module keyboard_controller(input logic CLK,
 									input logic PS2_CLK,
 									input logic PS2_DATA,
 									output logic [7:0] pressedKey);
-					//Codigos ps/2
-					//https://wiki.osdev.org/PS/2_Keyboard
-					localparam  [7:0] ARROW_UP 		= 8'h75;	
-					localparam  [7:0] ARROW_DOWN 		= 8'h72;
-					localparam  [7:0] ARROW_LEFT 		= 8'h6B;
-					localparam  [7:0] ARROW_RIGHT 	= 8'h74;	
-					localparam  [7:0] SPACE 			= 8'h29;	
-					localparam  [7:0] CLK_DIVISION   = 250;
+					//-----------------------------Constantes del modulo--------------------------------------------
+					localparam  [16:0] CLK_DIVISION   = 250;
 					localparam  [7:0] N_BITS         = 11;
-					localparam  [16:0] TIME_LIMIT    = 4000;
-					//falta probar estos codigos y lo mejor seria sacar esto del modulo para hacerlo generico
+					localparam  [23:0] TIME_LIMIT    = 4000;
+					//----------------------------------------------------------------------------------------------
 					
 					//--------------------------Iniciamos creando variables-----------------------------------------
 					logic READ;				
@@ -22,9 +16,9 @@ module keyboard_controller(input logic CLK,
 					logic [10:0] RECIVIED_CODE;			
 					logic [7:0] CODEWORD;			
 					logic COMPLETED_DATA;				
-					logic [3:0]BITS_COUNT;				
+					logic [3:0] BITS_COUNT;				
 					logic TEMP_PS2_CLK = 0;			
-					logic [7:0]CLK_COUNTER = 0;
+					logic [7:0] CLK_COUNT = 0;
 			      //----------------------------------------------------------------------------------------------		
 									
 					//---------------------Le damos valor inicial a las variables-----------------------------------
@@ -41,15 +35,18 @@ module keyboard_controller(input logic CLK,
 					//----------------------------------------------------------------------------------------------
 					
 					//-----------Aqui escalo la frecuencia del CLK de 50Mhz a la del PS/2---------------------------
-					always_ff @(posedge CLK) begin				
-						if (CLK_COUNTER < CLK_DIVISION) begin			
-							CLK_COUNTER <= CLK_COUNTER + 1;
-							TEMP_PS2_CLK <= 0;
-						end
-						else begin
-							CLK_COUNTER <= 0;
-							TEMP_PS2_CLK <= 1;
-						end
+					always_ff @(posedge CLK) 
+						begin				
+							if (CLK_COUNT < CLK_DIVISION) 
+								begin			
+									CLK_COUNT <= CLK_COUNT + 1;
+									TEMP_PS2_CLK <= 0;
+								end
+							else 
+								begin
+									CLK_COUNT <= 0;
+									TEMP_PS2_CLK <= 1;
+								end
 					end
 					//----------------------------------------------------------------------------------------------
 					
