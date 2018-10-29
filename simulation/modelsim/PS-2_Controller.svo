@@ -1,0 +1,1862 @@
+// Copyright (C) 2018  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus Prime"
+// VERSION "Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition"
+
+// DATE "10/28/2018 23:31:16"
+
+// 
+// Device: Altera 5CSEMA5F31C6 Package FBGA896
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (SystemVerilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module testKeyboard (
+	CLK,
+	PS2_CLK,
+	PS2_DATA,
+	hex1,
+	hex0);
+input 	logic CLK ;
+input 	logic PS2_CLK ;
+input 	logic PS2_DATA ;
+output 	logic [6:0] hex1 ;
+output 	logic [6:0] hex0 ;
+
+// Design Ports Information
+// CLK	=>  Location: PIN_AF14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// hex1[0]	=>  Location: PIN_AD27,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// hex1[1]	=>  Location: PIN_AF30,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// hex1[2]	=>  Location: PIN_AF29,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// hex1[3]	=>  Location: PIN_AG30,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// hex1[4]	=>  Location: PIN_AH30,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// hex1[5]	=>  Location: PIN_AH29,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// hex1[6]	=>  Location: PIN_AJ29,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// hex0[0]	=>  Location: PIN_AH28,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// hex0[1]	=>  Location: PIN_AG28,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// hex0[2]	=>  Location: PIN_AF28,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// hex0[3]	=>  Location: PIN_AG27,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// hex0[4]	=>  Location: PIN_AE28,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// hex0[5]	=>  Location: PIN_AE27,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// hex0[6]	=>  Location: PIN_AE26,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PS2_CLK	=>  Location: PIN_AD7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PS2_DATA	=>  Location: PIN_AE7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \CLK~input_o ;
+wire \~QUARTUS_CREATED_GND~I_combout ;
+wire \PS2_CLK~input_o ;
+wire \PS2_CLK~inputCLKENA0_outclk ;
+wire \keyboard_controller_F|b[1]~DUPLICATE_q ;
+wire \keyboard_controller_F|b[2]~1_combout ;
+wire \keyboard_controller_F|b[2]~DUPLICATE_q ;
+wire \keyboard_controller_F|b~0_combout ;
+wire \keyboard_controller_F|b[0]~DUPLICATE_q ;
+wire \keyboard_controller_F|b[3]~3_combout ;
+wire \keyboard_controller_F|b[3]~DUPLICATE_q ;
+wire \keyboard_controller_F|b[1]~2_combout ;
+wire \keyboard_controller_F|flag~0_combout ;
+wire \keyboard_controller_F|flag~q ;
+wire \PS2_DATA~input_o ;
+wire \keyboard_controller_F|data_curr[5]~1_combout ;
+wire \keyboard_controller_F|data_curr[7]~3_combout ;
+wire \keyboard_controller_F|data_curr[4]~0_combout ;
+wire \keyboard_controller_F|data_curr[6]~2_combout ;
+wire \keyboard_controller_F|data_curr[6]~feeder_combout ;
+wire \keyboard_controller_F|data_curr[3]~7_combout ;
+wire \keyboard_controller_F|data_curr[0]~4_combout ;
+wire \keyboard_controller_F|data_curr[2]~6_combout ;
+wire \keyboard_controller_F|data_curr[1]~5_combout ;
+wire \keyboard_controller_F|Equal1~0_combout ;
+wire \keyboard_controller_F|Equal1~1_combout ;
+wire \sevenSegmentDisplay_F_2|WideOr6~0_combout ;
+wire \sevenSegmentDisplay_F_2|WideOr5~0_combout ;
+wire \sevenSegmentDisplay_F_2|WideOr4~0_combout ;
+wire \sevenSegmentDisplay_F_2|WideOr3~0_combout ;
+wire \sevenSegmentDisplay_F_2|WideOr2~0_combout ;
+wire \sevenSegmentDisplay_F_2|WideOr1~0_combout ;
+wire \sevenSegmentDisplay_F_2|WideOr0~0_combout ;
+wire \keyboard_controller_F|data_pre[0]~feeder_combout ;
+wire \keyboard_controller_F|pressedKey[0]~feeder_combout ;
+wire \sevenSegmentDisplay_F_1|WideOr6~0_combout ;
+wire \sevenSegmentDisplay_F_1|WideOr5~0_combout ;
+wire \sevenSegmentDisplay_F_1|WideOr4~0_combout ;
+wire \sevenSegmentDisplay_F_1|WideOr3~0_combout ;
+wire \sevenSegmentDisplay_F_1|WideOr2~0_combout ;
+wire \sevenSegmentDisplay_F_1|WideOr1~0_combout ;
+wire \sevenSegmentDisplay_F_1|WideOr0~0_combout ;
+wire [7:0] \keyboard_controller_F|pressedKey ;
+wire [7:0] \keyboard_controller_F|data_pre ;
+wire [7:0] \keyboard_controller_F|data_curr ;
+wire [3:0] \keyboard_controller_F|b ;
+
+
+// Location: IOOBUF_X89_Y8_N56
+cyclonev_io_obuf \hex1[0]~output (
+	.i(!\sevenSegmentDisplay_F_2|WideOr6~0_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(hex1[0]),
+	.obar());
+// synopsys translate_off
+defparam \hex1[0]~output .bus_hold = "false";
+defparam \hex1[0]~output .open_drain_output = "false";
+defparam \hex1[0]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y15_N56
+cyclonev_io_obuf \hex1[1]~output (
+	.i(\sevenSegmentDisplay_F_2|WideOr5~0_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(hex1[1]),
+	.obar());
+// synopsys translate_off
+defparam \hex1[1]~output .bus_hold = "false";
+defparam \hex1[1]~output .open_drain_output = "false";
+defparam \hex1[1]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y15_N39
+cyclonev_io_obuf \hex1[2]~output (
+	.i(\sevenSegmentDisplay_F_2|WideOr4~0_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(hex1[2]),
+	.obar());
+// synopsys translate_off
+defparam \hex1[2]~output .bus_hold = "false";
+defparam \hex1[2]~output .open_drain_output = "false";
+defparam \hex1[2]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y16_N56
+cyclonev_io_obuf \hex1[3]~output (
+	.i(\sevenSegmentDisplay_F_2|WideOr3~0_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(hex1[3]),
+	.obar());
+// synopsys translate_off
+defparam \hex1[3]~output .bus_hold = "false";
+defparam \hex1[3]~output .open_drain_output = "false";
+defparam \hex1[3]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y16_N39
+cyclonev_io_obuf \hex1[4]~output (
+	.i(\sevenSegmentDisplay_F_2|WideOr2~0_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(hex1[4]),
+	.obar());
+// synopsys translate_off
+defparam \hex1[4]~output .bus_hold = "false";
+defparam \hex1[4]~output .open_drain_output = "false";
+defparam \hex1[4]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y6_N56
+cyclonev_io_obuf \hex1[5]~output (
+	.i(\sevenSegmentDisplay_F_2|WideOr1~0_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(hex1[5]),
+	.obar());
+// synopsys translate_off
+defparam \hex1[5]~output .bus_hold = "false";
+defparam \hex1[5]~output .open_drain_output = "false";
+defparam \hex1[5]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y6_N39
+cyclonev_io_obuf \hex1[6]~output (
+	.i(\sevenSegmentDisplay_F_2|WideOr0~0_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(hex1[6]),
+	.obar());
+// synopsys translate_off
+defparam \hex1[6]~output .bus_hold = "false";
+defparam \hex1[6]~output .open_drain_output = "false";
+defparam \hex1[6]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y4_N96
+cyclonev_io_obuf \hex0[0]~output (
+	.i(!\sevenSegmentDisplay_F_1|WideOr6~0_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(hex0[0]),
+	.obar());
+// synopsys translate_off
+defparam \hex0[0]~output .bus_hold = "false";
+defparam \hex0[0]~output .open_drain_output = "false";
+defparam \hex0[0]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y13_N39
+cyclonev_io_obuf \hex0[1]~output (
+	.i(\sevenSegmentDisplay_F_1|WideOr5~0_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(hex0[1]),
+	.obar());
+// synopsys translate_off
+defparam \hex0[1]~output .bus_hold = "false";
+defparam \hex0[1]~output .open_drain_output = "false";
+defparam \hex0[1]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y13_N56
+cyclonev_io_obuf \hex0[2]~output (
+	.i(\sevenSegmentDisplay_F_1|WideOr4~0_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(hex0[2]),
+	.obar());
+// synopsys translate_off
+defparam \hex0[2]~output .bus_hold = "false";
+defparam \hex0[2]~output .open_drain_output = "false";
+defparam \hex0[2]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y4_N79
+cyclonev_io_obuf \hex0[3]~output (
+	.i(\sevenSegmentDisplay_F_1|WideOr3~0_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(hex0[3]),
+	.obar());
+// synopsys translate_off
+defparam \hex0[3]~output .bus_hold = "false";
+defparam \hex0[3]~output .open_drain_output = "false";
+defparam \hex0[3]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y11_N96
+cyclonev_io_obuf \hex0[4]~output (
+	.i(\sevenSegmentDisplay_F_1|WideOr2~0_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(hex0[4]),
+	.obar());
+// synopsys translate_off
+defparam \hex0[4]~output .bus_hold = "false";
+defparam \hex0[4]~output .open_drain_output = "false";
+defparam \hex0[4]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y11_N79
+cyclonev_io_obuf \hex0[5]~output (
+	.i(\sevenSegmentDisplay_F_1|WideOr1~0_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(hex0[5]),
+	.obar());
+// synopsys translate_off
+defparam \hex0[5]~output .bus_hold = "false";
+defparam \hex0[5]~output .open_drain_output = "false";
+defparam \hex0[5]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y8_N39
+cyclonev_io_obuf \hex0[6]~output (
+	.i(\sevenSegmentDisplay_F_1|WideOr0~0_combout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(hex0[6]),
+	.obar());
+// synopsys translate_off
+defparam \hex0[6]~output .bus_hold = "false";
+defparam \hex0[6]~output .open_drain_output = "false";
+defparam \hex0[6]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X6_Y0_N1
+cyclonev_io_ibuf \PS2_CLK~input (
+	.i(PS2_CLK),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\PS2_CLK~input_o ));
+// synopsys translate_off
+defparam \PS2_CLK~input .bus_hold = "false";
+defparam \PS2_CLK~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: CLKCTRL_G0
+cyclonev_clkena \PS2_CLK~inputCLKENA0 (
+	.inclk(\PS2_CLK~input_o ),
+	.ena(vcc),
+	.outclk(\PS2_CLK~inputCLKENA0_outclk ),
+	.enaout());
+// synopsys translate_off
+defparam \PS2_CLK~inputCLKENA0 .clock_type = "global clock";
+defparam \PS2_CLK~inputCLKENA0 .disable_mode = "low";
+defparam \PS2_CLK~inputCLKENA0 .ena_register_mode = "always enabled";
+defparam \PS2_CLK~inputCLKENA0 .ena_register_power_up = "high";
+defparam \PS2_CLK~inputCLKENA0 .test_syn = "high";
+// synopsys translate_on
+
+// Location: FF_X7_Y4_N22
+dffeas \keyboard_controller_F|b[1]~DUPLICATE (
+	.clk(!\PS2_CLK~inputCLKENA0_outclk ),
+	.d(\keyboard_controller_F|b[1]~2_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|b[1]~DUPLICATE_q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|b[1]~DUPLICATE .is_wysiwyg = "true";
+defparam \keyboard_controller_F|b[1]~DUPLICATE .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X7_Y4_N38
+dffeas \keyboard_controller_F|b[2] (
+	.clk(!\PS2_CLK~inputCLKENA0_outclk ),
+	.d(\keyboard_controller_F|b[2]~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|b [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|b[2] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|b[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X7_Y4_N36
+cyclonev_lcell_comb \keyboard_controller_F|b[2]~1 (
+// Equation(s):
+// \keyboard_controller_F|b[2]~1_combout  = ( \keyboard_controller_F|b [2] & ( ((!\keyboard_controller_F|b[1]~DUPLICATE_q ) # (\keyboard_controller_F|b[0]~DUPLICATE_q )) # (\keyboard_controller_F|b[3]~DUPLICATE_q ) ) ) # ( !\keyboard_controller_F|b [2] & ( 
+// (!\keyboard_controller_F|b[3]~DUPLICATE_q  & (!\keyboard_controller_F|b[0]~DUPLICATE_q  & \keyboard_controller_F|b[1]~DUPLICATE_q )) ) )
+
+	.dataa(!\keyboard_controller_F|b[3]~DUPLICATE_q ),
+	.datab(!\keyboard_controller_F|b[0]~DUPLICATE_q ),
+	.datac(!\keyboard_controller_F|b[1]~DUPLICATE_q ),
+	.datad(gnd),
+	.datae(!\keyboard_controller_F|b [2]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|b[2]~1_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|b[2]~1 .extended_lut = "off";
+defparam \keyboard_controller_F|b[2]~1 .lut_mask = 64'h0808F7F70808F7F7;
+defparam \keyboard_controller_F|b[2]~1 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X7_Y4_N37
+dffeas \keyboard_controller_F|b[2]~DUPLICATE (
+	.clk(!\PS2_CLK~inputCLKENA0_outclk ),
+	.d(\keyboard_controller_F|b[2]~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|b[2]~DUPLICATE_q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|b[2]~DUPLICATE .is_wysiwyg = "true";
+defparam \keyboard_controller_F|b[2]~DUPLICATE .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X7_Y4_N44
+dffeas \keyboard_controller_F|b[0] (
+	.clk(!\PS2_CLK~inputCLKENA0_outclk ),
+	.d(\keyboard_controller_F|b~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|b [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|b[0] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|b[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X7_Y4_N42
+cyclonev_lcell_comb \keyboard_controller_F|b~0 (
+// Equation(s):
+// \keyboard_controller_F|b~0_combout  = ( \keyboard_controller_F|b [0] & ( \keyboard_controller_F|b[1]~DUPLICATE_q  & ( (\keyboard_controller_F|b[3]~DUPLICATE_q  & \keyboard_controller_F|b[2]~DUPLICATE_q ) ) ) ) # ( !\keyboard_controller_F|b [0] & ( 
+// \keyboard_controller_F|b[1]~DUPLICATE_q  & ( !\keyboard_controller_F|b[3]~DUPLICATE_q  ) ) ) # ( \keyboard_controller_F|b [0] & ( !\keyboard_controller_F|b[1]~DUPLICATE_q  & ( (\keyboard_controller_F|b[3]~DUPLICATE_q  & 
+// \keyboard_controller_F|b[2]~DUPLICATE_q ) ) ) ) # ( !\keyboard_controller_F|b [0] & ( !\keyboard_controller_F|b[1]~DUPLICATE_q  & ( (!\keyboard_controller_F|b[3]~DUPLICATE_q ) # (!\keyboard_controller_F|b[2]~DUPLICATE_q ) ) ) )
+
+	.dataa(!\keyboard_controller_F|b[3]~DUPLICATE_q ),
+	.datab(!\keyboard_controller_F|b[2]~DUPLICATE_q ),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(!\keyboard_controller_F|b [0]),
+	.dataf(!\keyboard_controller_F|b[1]~DUPLICATE_q ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|b~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|b~0 .extended_lut = "off";
+defparam \keyboard_controller_F|b~0 .lut_mask = 64'hEEEE1111AAAA1111;
+defparam \keyboard_controller_F|b~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X7_Y4_N43
+dffeas \keyboard_controller_F|b[0]~DUPLICATE (
+	.clk(!\PS2_CLK~inputCLKENA0_outclk ),
+	.d(\keyboard_controller_F|b~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|b[0]~DUPLICATE_q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|b[0]~DUPLICATE .is_wysiwyg = "true";
+defparam \keyboard_controller_F|b[0]~DUPLICATE .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X7_Y4_N11
+dffeas \keyboard_controller_F|b[3] (
+	.clk(!\PS2_CLK~inputCLKENA0_outclk ),
+	.d(\keyboard_controller_F|b[3]~3_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|b [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|b[3] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|b[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X7_Y4_N9
+cyclonev_lcell_comb \keyboard_controller_F|b[3]~3 (
+// Equation(s):
+// \keyboard_controller_F|b[3]~3_combout  = ( \keyboard_controller_F|b [3] & ( \keyboard_controller_F|b[1]~DUPLICATE_q  & ( (\keyboard_controller_F|b[2]~DUPLICATE_q ) # (\keyboard_controller_F|b[0]~DUPLICATE_q ) ) ) ) # ( !\keyboard_controller_F|b [3] & ( 
+// \keyboard_controller_F|b[1]~DUPLICATE_q  & ( (!\keyboard_controller_F|b[0]~DUPLICATE_q  & \keyboard_controller_F|b[2]~DUPLICATE_q ) ) ) ) # ( \keyboard_controller_F|b [3] & ( !\keyboard_controller_F|b[1]~DUPLICATE_q  ) )
+
+	.dataa(!\keyboard_controller_F|b[0]~DUPLICATE_q ),
+	.datab(!\keyboard_controller_F|b[2]~DUPLICATE_q ),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(!\keyboard_controller_F|b [3]),
+	.dataf(!\keyboard_controller_F|b[1]~DUPLICATE_q ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|b[3]~3_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|b[3]~3 .extended_lut = "off";
+defparam \keyboard_controller_F|b[3]~3 .lut_mask = 64'h0000FFFF22227777;
+defparam \keyboard_controller_F|b[3]~3 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X7_Y4_N10
+dffeas \keyboard_controller_F|b[3]~DUPLICATE (
+	.clk(!\PS2_CLK~inputCLKENA0_outclk ),
+	.d(\keyboard_controller_F|b[3]~3_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|b[3]~DUPLICATE_q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|b[3]~DUPLICATE .is_wysiwyg = "true";
+defparam \keyboard_controller_F|b[3]~DUPLICATE .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X7_Y4_N21
+cyclonev_lcell_comb \keyboard_controller_F|b[1]~2 (
+// Equation(s):
+// \keyboard_controller_F|b[1]~2_combout  = ( \keyboard_controller_F|b [1] & ( ((\keyboard_controller_F|b[3]~DUPLICATE_q  & \keyboard_controller_F|b[2]~DUPLICATE_q )) # (\keyboard_controller_F|b[0]~DUPLICATE_q ) ) ) # ( !\keyboard_controller_F|b [1] & ( 
+// (!\keyboard_controller_F|b[0]~DUPLICATE_q  & ((!\keyboard_controller_F|b[3]~DUPLICATE_q ) # (!\keyboard_controller_F|b[2]~DUPLICATE_q ))) ) )
+
+	.dataa(!\keyboard_controller_F|b[3]~DUPLICATE_q ),
+	.datab(!\keyboard_controller_F|b[2]~DUPLICATE_q ),
+	.datac(gnd),
+	.datad(!\keyboard_controller_F|b[0]~DUPLICATE_q ),
+	.datae(!\keyboard_controller_F|b [1]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|b[1]~2_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|b[1]~2 .extended_lut = "off";
+defparam \keyboard_controller_F|b[1]~2 .lut_mask = 64'hEE0011FFEE0011FF;
+defparam \keyboard_controller_F|b[1]~2 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X7_Y4_N23
+dffeas \keyboard_controller_F|b[1] (
+	.clk(!\PS2_CLK~inputCLKENA0_outclk ),
+	.d(\keyboard_controller_F|b[1]~2_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|b [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|b[1] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|b[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X7_Y4_N24
+cyclonev_lcell_comb \keyboard_controller_F|flag~0 (
+// Equation(s):
+// \keyboard_controller_F|flag~0_combout  = ( \keyboard_controller_F|b [2] & ( \keyboard_controller_F|b [0] & ( \keyboard_controller_F|flag~q  ) ) ) # ( !\keyboard_controller_F|b [2] & ( \keyboard_controller_F|b [0] & ( ((\keyboard_controller_F|b [1] & 
+// \keyboard_controller_F|b [3])) # (\keyboard_controller_F|flag~q ) ) ) ) # ( \keyboard_controller_F|b [2] & ( !\keyboard_controller_F|b [0] & ( \keyboard_controller_F|flag~q  ) ) ) # ( !\keyboard_controller_F|b [2] & ( !\keyboard_controller_F|b [0] & ( 
+// (\keyboard_controller_F|flag~q  & ((!\keyboard_controller_F|b [1]) # (!\keyboard_controller_F|b [3]))) ) ) )
+
+	.dataa(gnd),
+	.datab(!\keyboard_controller_F|flag~q ),
+	.datac(!\keyboard_controller_F|b [1]),
+	.datad(!\keyboard_controller_F|b [3]),
+	.datae(!\keyboard_controller_F|b [2]),
+	.dataf(!\keyboard_controller_F|b [0]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|flag~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|flag~0 .extended_lut = "off";
+defparam \keyboard_controller_F|flag~0 .lut_mask = 64'h33303333333F3333;
+defparam \keyboard_controller_F|flag~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X7_Y4_N59
+dffeas \keyboard_controller_F|flag (
+	.clk(!\PS2_CLK~input_o ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|flag~0_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|flag~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|flag .is_wysiwyg = "true";
+defparam \keyboard_controller_F|flag .power_up = "low";
+// synopsys translate_on
+
+// Location: IOIBUF_X6_Y0_N18
+cyclonev_io_ibuf \PS2_DATA~input (
+	.i(PS2_DATA),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\PS2_DATA~input_o ));
+// synopsys translate_off
+defparam \PS2_DATA~input .bus_hold = "false";
+defparam \PS2_DATA~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: MLABCELL_X8_Y4_N48
+cyclonev_lcell_comb \keyboard_controller_F|data_curr[5]~1 (
+// Equation(s):
+// \keyboard_controller_F|data_curr[5]~1_combout  = ( \keyboard_controller_F|data_curr [5] & ( \keyboard_controller_F|b[3]~DUPLICATE_q  ) ) # ( \keyboard_controller_F|data_curr [5] & ( !\keyboard_controller_F|b[3]~DUPLICATE_q  & ( 
+// (!\keyboard_controller_F|b[1]~DUPLICATE_q ) # ((!\PS2_DATA~input_o ) # ((!\keyboard_controller_F|b[2]~DUPLICATE_q ) # (\keyboard_controller_F|b[0]~DUPLICATE_q ))) ) ) ) # ( !\keyboard_controller_F|data_curr [5] & ( !\keyboard_controller_F|b[3]~DUPLICATE_q 
+//  & ( (\keyboard_controller_F|b[1]~DUPLICATE_q  & (!\PS2_DATA~input_o  & (!\keyboard_controller_F|b[0]~DUPLICATE_q  & \keyboard_controller_F|b[2]~DUPLICATE_q ))) ) ) )
+
+	.dataa(!\keyboard_controller_F|b[1]~DUPLICATE_q ),
+	.datab(!\PS2_DATA~input_o ),
+	.datac(!\keyboard_controller_F|b[0]~DUPLICATE_q ),
+	.datad(!\keyboard_controller_F|b[2]~DUPLICATE_q ),
+	.datae(!\keyboard_controller_F|data_curr [5]),
+	.dataf(!\keyboard_controller_F|b[3]~DUPLICATE_q ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|data_curr[5]~1_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|data_curr[5]~1 .extended_lut = "off";
+defparam \keyboard_controller_F|data_curr[5]~1 .lut_mask = 64'h0040FFEF0000FFFF;
+defparam \keyboard_controller_F|data_curr[5]~1 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X9_Y4_N56
+dffeas \keyboard_controller_F|data_curr[5] (
+	.clk(!\PS2_CLK~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_curr[5]~1_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|data_curr [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|data_curr[5] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|data_curr[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X7_Y4_N54
+cyclonev_lcell_comb \keyboard_controller_F|data_curr[7]~3 (
+// Equation(s):
+// \keyboard_controller_F|data_curr[7]~3_combout  = ( \PS2_DATA~input_o  & ( \keyboard_controller_F|b[0]~DUPLICATE_q  & ( \keyboard_controller_F|data_curr [7] ) ) ) # ( !\PS2_DATA~input_o  & ( \keyboard_controller_F|b[0]~DUPLICATE_q  & ( 
+// \keyboard_controller_F|data_curr [7] ) ) ) # ( \PS2_DATA~input_o  & ( !\keyboard_controller_F|b[0]~DUPLICATE_q  & ( (\keyboard_controller_F|data_curr [7] & (((!\keyboard_controller_F|b[3]~DUPLICATE_q ) # (\keyboard_controller_F|b [2])) # 
+// (\keyboard_controller_F|b[1]~DUPLICATE_q ))) ) ) ) # ( !\PS2_DATA~input_o  & ( !\keyboard_controller_F|b[0]~DUPLICATE_q  & ( ((!\keyboard_controller_F|b[1]~DUPLICATE_q  & (!\keyboard_controller_F|b [2] & \keyboard_controller_F|b[3]~DUPLICATE_q ))) # 
+// (\keyboard_controller_F|data_curr [7]) ) ) )
+
+	.dataa(!\keyboard_controller_F|b[1]~DUPLICATE_q ),
+	.datab(!\keyboard_controller_F|data_curr [7]),
+	.datac(!\keyboard_controller_F|b [2]),
+	.datad(!\keyboard_controller_F|b[3]~DUPLICATE_q ),
+	.datae(!\PS2_DATA~input_o ),
+	.dataf(!\keyboard_controller_F|b[0]~DUPLICATE_q ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|data_curr[7]~3_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|data_curr[7]~3 .extended_lut = "off";
+defparam \keyboard_controller_F|data_curr[7]~3 .lut_mask = 64'h33B3331333333333;
+defparam \keyboard_controller_F|data_curr[7]~3 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N14
+dffeas \keyboard_controller_F|data_curr[7] (
+	.clk(!\PS2_CLK~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_curr[7]~3_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|data_curr [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|data_curr[7] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|data_curr[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: MLABCELL_X8_Y4_N18
+cyclonev_lcell_comb \keyboard_controller_F|data_curr[4]~0 (
+// Equation(s):
+// \keyboard_controller_F|data_curr[4]~0_combout  = ( \PS2_DATA~input_o  & ( \keyboard_controller_F|b[3]~DUPLICATE_q  & ( \keyboard_controller_F|data_curr [4] ) ) ) # ( !\PS2_DATA~input_o  & ( \keyboard_controller_F|b[3]~DUPLICATE_q  & ( 
+// \keyboard_controller_F|data_curr [4] ) ) ) # ( \PS2_DATA~input_o  & ( !\keyboard_controller_F|b[3]~DUPLICATE_q  & ( (\keyboard_controller_F|data_curr [4] & ((!\keyboard_controller_F|b[0]~DUPLICATE_q ) # ((!\keyboard_controller_F|b[2]~DUPLICATE_q ) # 
+// (!\keyboard_controller_F|b[1]~DUPLICATE_q )))) ) ) ) # ( !\PS2_DATA~input_o  & ( !\keyboard_controller_F|b[3]~DUPLICATE_q  & ( ((\keyboard_controller_F|b[0]~DUPLICATE_q  & (\keyboard_controller_F|b[2]~DUPLICATE_q  & \keyboard_controller_F|b[1]~DUPLICATE_q 
+// ))) # (\keyboard_controller_F|data_curr [4]) ) ) )
+
+	.dataa(!\keyboard_controller_F|b[0]~DUPLICATE_q ),
+	.datab(!\keyboard_controller_F|b[2]~DUPLICATE_q ),
+	.datac(!\keyboard_controller_F|b[1]~DUPLICATE_q ),
+	.datad(!\keyboard_controller_F|data_curr [4]),
+	.datae(!\PS2_DATA~input_o ),
+	.dataf(!\keyboard_controller_F|b[3]~DUPLICATE_q ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|data_curr[4]~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|data_curr[4]~0 .extended_lut = "off";
+defparam \keyboard_controller_F|data_curr[4]~0 .lut_mask = 64'h01FF00FE00FF00FF;
+defparam \keyboard_controller_F|data_curr[4]~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X9_Y4_N26
+dffeas \keyboard_controller_F|data_curr[4] (
+	.clk(!\PS2_CLK~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_curr[4]~0_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|data_curr [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|data_curr[4] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|data_curr[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: MLABCELL_X8_Y4_N15
+cyclonev_lcell_comb \keyboard_controller_F|data_curr[6]~2 (
+// Equation(s):
+// \keyboard_controller_F|data_curr[6]~2_combout  = ( \keyboard_controller_F|b[1]~DUPLICATE_q  & ( \PS2_DATA~input_o  & ( \keyboard_controller_F|data_curr [6] ) ) ) # ( !\keyboard_controller_F|b[1]~DUPLICATE_q  & ( \PS2_DATA~input_o  & ( 
+// (\keyboard_controller_F|data_curr [6] & ((!\keyboard_controller_F|b[0]~DUPLICATE_q ) # ((!\keyboard_controller_F|b[3]~DUPLICATE_q ) # (\keyboard_controller_F|b[2]~DUPLICATE_q )))) ) ) ) # ( \keyboard_controller_F|b[1]~DUPLICATE_q  & ( !\PS2_DATA~input_o  
+// & ( \keyboard_controller_F|data_curr [6] ) ) ) # ( !\keyboard_controller_F|b[1]~DUPLICATE_q  & ( !\PS2_DATA~input_o  & ( ((\keyboard_controller_F|b[0]~DUPLICATE_q  & (!\keyboard_controller_F|b[2]~DUPLICATE_q  & \keyboard_controller_F|b[3]~DUPLICATE_q ))) 
+// # (\keyboard_controller_F|data_curr [6]) ) ) )
+
+	.dataa(!\keyboard_controller_F|b[0]~DUPLICATE_q ),
+	.datab(!\keyboard_controller_F|b[2]~DUPLICATE_q ),
+	.datac(!\keyboard_controller_F|b[3]~DUPLICATE_q ),
+	.datad(!\keyboard_controller_F|data_curr [6]),
+	.datae(!\keyboard_controller_F|b[1]~DUPLICATE_q ),
+	.dataf(!\PS2_DATA~input_o ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|data_curr[6]~2_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|data_curr[6]~2 .extended_lut = "off";
+defparam \keyboard_controller_F|data_curr[6]~2 .lut_mask = 64'h04FF00FF00FB00FF;
+defparam \keyboard_controller_F|data_curr[6]~2 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X9_Y4_N3
+cyclonev_lcell_comb \keyboard_controller_F|data_curr[6]~feeder (
+// Equation(s):
+// \keyboard_controller_F|data_curr[6]~feeder_combout  = \keyboard_controller_F|data_curr[6]~2_combout 
+
+	.dataa(!\keyboard_controller_F|data_curr[6]~2_combout ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|data_curr[6]~feeder_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|data_curr[6]~feeder .extended_lut = "off";
+defparam \keyboard_controller_F|data_curr[6]~feeder .lut_mask = 64'h5555555555555555;
+defparam \keyboard_controller_F|data_curr[6]~feeder .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X9_Y4_N5
+dffeas \keyboard_controller_F|data_curr[6] (
+	.clk(!\PS2_CLK~inputCLKENA0_outclk ),
+	.d(\keyboard_controller_F|data_curr[6]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|data_curr [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|data_curr[6] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|data_curr[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X7_Y4_N30
+cyclonev_lcell_comb \keyboard_controller_F|data_curr[3]~7 (
+// Equation(s):
+// \keyboard_controller_F|data_curr[3]~7_combout  = ( \PS2_DATA~input_o  & ( \keyboard_controller_F|b[1]~DUPLICATE_q  & ( \keyboard_controller_F|data_curr [3] ) ) ) # ( !\PS2_DATA~input_o  & ( \keyboard_controller_F|b[1]~DUPLICATE_q  & ( 
+// \keyboard_controller_F|data_curr [3] ) ) ) # ( \PS2_DATA~input_o  & ( !\keyboard_controller_F|b[1]~DUPLICATE_q  & ( ((!\keyboard_controller_F|b[0]~DUPLICATE_q  & (!\keyboard_controller_F|b[3]~DUPLICATE_q  & \keyboard_controller_F|b[2]~DUPLICATE_q ))) # 
+// (\keyboard_controller_F|data_curr [3]) ) ) ) # ( !\PS2_DATA~input_o  & ( !\keyboard_controller_F|b[1]~DUPLICATE_q  & ( (\keyboard_controller_F|data_curr [3] & (((!\keyboard_controller_F|b[2]~DUPLICATE_q ) # (\keyboard_controller_F|b[3]~DUPLICATE_q )) # 
+// (\keyboard_controller_F|b[0]~DUPLICATE_q ))) ) ) )
+
+	.dataa(!\keyboard_controller_F|data_curr [3]),
+	.datab(!\keyboard_controller_F|b[0]~DUPLICATE_q ),
+	.datac(!\keyboard_controller_F|b[3]~DUPLICATE_q ),
+	.datad(!\keyboard_controller_F|b[2]~DUPLICATE_q ),
+	.datae(!\PS2_DATA~input_o ),
+	.dataf(!\keyboard_controller_F|b[1]~DUPLICATE_q ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|data_curr[3]~7_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|data_curr[3]~7 .extended_lut = "off";
+defparam \keyboard_controller_F|data_curr[3]~7 .lut_mask = 64'h551555D555555555;
+defparam \keyboard_controller_F|data_curr[3]~7 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N17
+dffeas \keyboard_controller_F|data_curr[3] (
+	.clk(!\PS2_CLK~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_curr[3]~7_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|data_curr [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|data_curr[3] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|data_curr[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: MLABCELL_X8_Y4_N45
+cyclonev_lcell_comb \keyboard_controller_F|data_curr[0]~4 (
+// Equation(s):
+// \keyboard_controller_F|data_curr[0]~4_combout  = ( \PS2_DATA~input_o  & ( \keyboard_controller_F|b[3]~DUPLICATE_q  & ( \keyboard_controller_F|data_curr [0] ) ) ) # ( !\PS2_DATA~input_o  & ( \keyboard_controller_F|b[3]~DUPLICATE_q  & ( 
+// \keyboard_controller_F|data_curr [0] ) ) ) # ( \PS2_DATA~input_o  & ( !\keyboard_controller_F|b[3]~DUPLICATE_q  & ( ((\keyboard_controller_F|b[1]~DUPLICATE_q  & (!\keyboard_controller_F|b[2]~DUPLICATE_q  & \keyboard_controller_F|b[0]~DUPLICATE_q ))) # 
+// (\keyboard_controller_F|data_curr [0]) ) ) ) # ( !\PS2_DATA~input_o  & ( !\keyboard_controller_F|b[3]~DUPLICATE_q  & ( (\keyboard_controller_F|data_curr [0] & ((!\keyboard_controller_F|b[1]~DUPLICATE_q ) # ((!\keyboard_controller_F|b[0]~DUPLICATE_q ) # 
+// (\keyboard_controller_F|b[2]~DUPLICATE_q )))) ) ) )
+
+	.dataa(!\keyboard_controller_F|data_curr [0]),
+	.datab(!\keyboard_controller_F|b[1]~DUPLICATE_q ),
+	.datac(!\keyboard_controller_F|b[2]~DUPLICATE_q ),
+	.datad(!\keyboard_controller_F|b[0]~DUPLICATE_q ),
+	.datae(!\PS2_DATA~input_o ),
+	.dataf(!\keyboard_controller_F|b[3]~DUPLICATE_q ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|data_curr[0]~4_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|data_curr[0]~4 .extended_lut = "off";
+defparam \keyboard_controller_F|data_curr[0]~4 .lut_mask = 64'h5545557555555555;
+defparam \keyboard_controller_F|data_curr[0]~4 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N44
+dffeas \keyboard_controller_F|data_curr[0] (
+	.clk(!\PS2_CLK~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_curr[0]~4_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|data_curr [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|data_curr[0] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|data_curr[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X7_Y4_N12
+cyclonev_lcell_comb \keyboard_controller_F|data_curr[2]~6 (
+// Equation(s):
+// \keyboard_controller_F|data_curr[2]~6_combout  = ( \PS2_DATA~input_o  & ( \keyboard_controller_F|b[1]~DUPLICATE_q  & ( \keyboard_controller_F|data_curr [2] ) ) ) # ( !\PS2_DATA~input_o  & ( \keyboard_controller_F|b[1]~DUPLICATE_q  & ( 
+// \keyboard_controller_F|data_curr [2] ) ) ) # ( \PS2_DATA~input_o  & ( !\keyboard_controller_F|b[1]~DUPLICATE_q  & ( ((\keyboard_controller_F|b[0]~DUPLICATE_q  & (!\keyboard_controller_F|b[3]~DUPLICATE_q  & \keyboard_controller_F|b[2]~DUPLICATE_q ))) # 
+// (\keyboard_controller_F|data_curr [2]) ) ) ) # ( !\PS2_DATA~input_o  & ( !\keyboard_controller_F|b[1]~DUPLICATE_q  & ( (\keyboard_controller_F|data_curr [2] & ((!\keyboard_controller_F|b[0]~DUPLICATE_q ) # ((!\keyboard_controller_F|b[2]~DUPLICATE_q ) # 
+// (\keyboard_controller_F|b[3]~DUPLICATE_q )))) ) ) )
+
+	.dataa(!\keyboard_controller_F|data_curr [2]),
+	.datab(!\keyboard_controller_F|b[0]~DUPLICATE_q ),
+	.datac(!\keyboard_controller_F|b[3]~DUPLICATE_q ),
+	.datad(!\keyboard_controller_F|b[2]~DUPLICATE_q ),
+	.datae(!\PS2_DATA~input_o ),
+	.dataf(!\keyboard_controller_F|b[1]~DUPLICATE_q ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|data_curr[2]~6_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|data_curr[2]~6 .extended_lut = "off";
+defparam \keyboard_controller_F|data_curr[2]~6 .lut_mask = 64'h5545557555555555;
+defparam \keyboard_controller_F|data_curr[2]~6 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N47
+dffeas \keyboard_controller_F|data_curr[2] (
+	.clk(!\PS2_CLK~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_curr[2]~6_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|data_curr [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|data_curr[2] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|data_curr[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: MLABCELL_X8_Y4_N0
+cyclonev_lcell_comb \keyboard_controller_F|data_curr[1]~5 (
+// Equation(s):
+// \keyboard_controller_F|data_curr[1]~5_combout  = ( \keyboard_controller_F|b[1]~DUPLICATE_q  & ( \keyboard_controller_F|b[3]~DUPLICATE_q  & ( \keyboard_controller_F|data_curr [1] ) ) ) # ( !\keyboard_controller_F|b[1]~DUPLICATE_q  & ( 
+// \keyboard_controller_F|b[3]~DUPLICATE_q  & ( \keyboard_controller_F|data_curr [1] ) ) ) # ( \keyboard_controller_F|b[1]~DUPLICATE_q  & ( !\keyboard_controller_F|b[3]~DUPLICATE_q  & ( (!\keyboard_controller_F|b[0]~DUPLICATE_q  & 
+// ((!\keyboard_controller_F|b[2]~DUPLICATE_q  & ((\PS2_DATA~input_o ))) # (\keyboard_controller_F|b[2]~DUPLICATE_q  & (\keyboard_controller_F|data_curr [1])))) # (\keyboard_controller_F|b[0]~DUPLICATE_q  & (\keyboard_controller_F|data_curr [1])) ) ) ) # ( 
+// !\keyboard_controller_F|b[1]~DUPLICATE_q  & ( !\keyboard_controller_F|b[3]~DUPLICATE_q  & ( \keyboard_controller_F|data_curr [1] ) ) )
+
+	.dataa(!\keyboard_controller_F|data_curr [1]),
+	.datab(!\PS2_DATA~input_o ),
+	.datac(!\keyboard_controller_F|b[0]~DUPLICATE_q ),
+	.datad(!\keyboard_controller_F|b[2]~DUPLICATE_q ),
+	.datae(!\keyboard_controller_F|b[1]~DUPLICATE_q ),
+	.dataf(!\keyboard_controller_F|b[3]~DUPLICATE_q ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|data_curr[1]~5_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|data_curr[1]~5 .extended_lut = "off";
+defparam \keyboard_controller_F|data_curr[1]~5 .lut_mask = 64'h5555355555555555;
+defparam \keyboard_controller_F|data_curr[1]~5 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X9_Y4_N14
+dffeas \keyboard_controller_F|data_curr[1] (
+	.clk(!\PS2_CLK~inputCLKENA0_outclk ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_curr[1]~5_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|data_curr [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|data_curr[1] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|data_curr[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: MLABCELL_X8_Y4_N9
+cyclonev_lcell_comb \keyboard_controller_F|Equal1~0 (
+// Equation(s):
+// \keyboard_controller_F|Equal1~0_combout  = ( !\keyboard_controller_F|data_curr [1] & ( (!\keyboard_controller_F|data_curr [3] & (!\keyboard_controller_F|data_curr [0] & !\keyboard_controller_F|data_curr [2])) ) )
+
+	.dataa(gnd),
+	.datab(!\keyboard_controller_F|data_curr [3]),
+	.datac(!\keyboard_controller_F|data_curr [0]),
+	.datad(!\keyboard_controller_F|data_curr [2]),
+	.datae(gnd),
+	.dataf(!\keyboard_controller_F|data_curr [1]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|Equal1~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|Equal1~0 .extended_lut = "off";
+defparam \keyboard_controller_F|Equal1~0 .lut_mask = 64'hC000C00000000000;
+defparam \keyboard_controller_F|Equal1~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X8_Y4_N39
+cyclonev_lcell_comb \keyboard_controller_F|Equal1~1 (
+// Equation(s):
+// \keyboard_controller_F|Equal1~1_combout  = ( !\keyboard_controller_F|data_curr [5] & ( \keyboard_controller_F|Equal1~0_combout  & ( (!\keyboard_controller_F|data_curr [7] & (!\keyboard_controller_F|data_curr [4] & !\keyboard_controller_F|data_curr [6])) ) 
+// ) )
+
+	.dataa(gnd),
+	.datab(!\keyboard_controller_F|data_curr [7]),
+	.datac(!\keyboard_controller_F|data_curr [4]),
+	.datad(!\keyboard_controller_F|data_curr [6]),
+	.datae(!\keyboard_controller_F|data_curr [5]),
+	.dataf(!\keyboard_controller_F|Equal1~0_combout ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|Equal1~1_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|Equal1~1 .extended_lut = "off";
+defparam \keyboard_controller_F|Equal1~1 .lut_mask = 64'h00000000C0000000;
+defparam \keyboard_controller_F|Equal1~1 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N49
+dffeas \keyboard_controller_F|data_pre[5] (
+	.clk(\keyboard_controller_F|flag~q ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_curr [5]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(!\keyboard_controller_F|Equal1~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|data_pre [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|data_pre[5] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|data_pre[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N32
+dffeas \keyboard_controller_F|pressedKey[5] (
+	.clk(\keyboard_controller_F|flag~q ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_pre [5]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\keyboard_controller_F|Equal1~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|pressedKey [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|pressedKey[5] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|pressedKey[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N19
+dffeas \keyboard_controller_F|data_pre[6] (
+	.clk(\keyboard_controller_F|flag~q ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_curr [6]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(!\keyboard_controller_F|Equal1~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|data_pre [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|data_pre[6] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|data_pre[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N56
+dffeas \keyboard_controller_F|pressedKey[6] (
+	.clk(\keyboard_controller_F|flag~q ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_pre [6]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\keyboard_controller_F|Equal1~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|pressedKey [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|pressedKey[6] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|pressedKey[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N52
+dffeas \keyboard_controller_F|data_pre[7] (
+	.clk(\keyboard_controller_F|flag~q ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_curr [7]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(!\keyboard_controller_F|Equal1~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|data_pre [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|data_pre[7] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|data_pre[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N35
+dffeas \keyboard_controller_F|pressedKey[7] (
+	.clk(\keyboard_controller_F|flag~q ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_pre [7]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\keyboard_controller_F|Equal1~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|pressedKey [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|pressedKey[7] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|pressedKey[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N37
+dffeas \keyboard_controller_F|data_pre[4] (
+	.clk(\keyboard_controller_F|flag~q ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_curr [4]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(!\keyboard_controller_F|Equal1~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|data_pre [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|data_pre[4] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|data_pre[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N8
+dffeas \keyboard_controller_F|pressedKey[4] (
+	.clk(\keyboard_controller_F|flag~q ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_pre [4]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\keyboard_controller_F|Equal1~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|pressedKey [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|pressedKey[4] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|pressedKey[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X9_Y4_N6
+cyclonev_lcell_comb \sevenSegmentDisplay_F_2|WideOr6~0 (
+// Equation(s):
+// \sevenSegmentDisplay_F_2|WideOr6~0_combout  = ( \keyboard_controller_F|pressedKey [7] & ( \keyboard_controller_F|pressedKey [4] & ( (!\keyboard_controller_F|pressedKey [5]) # (!\keyboard_controller_F|pressedKey [6]) ) ) ) # ( 
+// !\keyboard_controller_F|pressedKey [7] & ( \keyboard_controller_F|pressedKey [4] & ( (!\keyboard_controller_F|pressedKey [5]) # (\keyboard_controller_F|pressedKey [6]) ) ) ) # ( \keyboard_controller_F|pressedKey [7] & ( !\keyboard_controller_F|pressedKey 
+// [4] & ( !\keyboard_controller_F|pressedKey [5] $ (!\keyboard_controller_F|pressedKey [6]) ) ) ) # ( !\keyboard_controller_F|pressedKey [7] & ( !\keyboard_controller_F|pressedKey [4] ) )
+
+	.dataa(!\keyboard_controller_F|pressedKey [5]),
+	.datab(!\keyboard_controller_F|pressedKey [6]),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(!\keyboard_controller_F|pressedKey [7]),
+	.dataf(!\keyboard_controller_F|pressedKey [4]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\sevenSegmentDisplay_F_2|WideOr6~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \sevenSegmentDisplay_F_2|WideOr6~0 .extended_lut = "off";
+defparam \sevenSegmentDisplay_F_2|WideOr6~0 .lut_mask = 64'hFFFF6666BBBBEEEE;
+defparam \sevenSegmentDisplay_F_2|WideOr6~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X9_Y4_N21
+cyclonev_lcell_comb \sevenSegmentDisplay_F_2|WideOr5~0 (
+// Equation(s):
+// \sevenSegmentDisplay_F_2|WideOr5~0_combout  = ( \keyboard_controller_F|pressedKey [7] & ( \keyboard_controller_F|pressedKey [4] & ( (\keyboard_controller_F|pressedKey [6] & !\keyboard_controller_F|pressedKey [5]) ) ) ) # ( 
+// \keyboard_controller_F|pressedKey [7] & ( !\keyboard_controller_F|pressedKey [4] & ( (!\keyboard_controller_F|pressedKey [5]) # (\keyboard_controller_F|pressedKey [6]) ) ) ) # ( !\keyboard_controller_F|pressedKey [7] & ( !\keyboard_controller_F|pressedKey 
+// [4] & ( (!\keyboard_controller_F|pressedKey [6] & \keyboard_controller_F|pressedKey [5]) ) ) )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\keyboard_controller_F|pressedKey [6]),
+	.datad(!\keyboard_controller_F|pressedKey [5]),
+	.datae(!\keyboard_controller_F|pressedKey [7]),
+	.dataf(!\keyboard_controller_F|pressedKey [4]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\sevenSegmentDisplay_F_2|WideOr5~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \sevenSegmentDisplay_F_2|WideOr5~0 .extended_lut = "off";
+defparam \sevenSegmentDisplay_F_2|WideOr5~0 .lut_mask = 64'h00F0FF0F00000F00;
+defparam \sevenSegmentDisplay_F_2|WideOr5~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X8_Y4_N33
+cyclonev_lcell_comb \sevenSegmentDisplay_F_2|WideOr4~0 (
+// Equation(s):
+// \sevenSegmentDisplay_F_2|WideOr4~0_combout  = ( \keyboard_controller_F|pressedKey [4] & ( (!\keyboard_controller_F|pressedKey [6] & (\keyboard_controller_F|pressedKey [5] & \keyboard_controller_F|pressedKey [7])) ) ) # ( !\keyboard_controller_F|pressedKey 
+// [4] & ( ((\keyboard_controller_F|pressedKey [6] & \keyboard_controller_F|pressedKey [5])) # (\keyboard_controller_F|pressedKey [7]) ) )
+
+	.dataa(!\keyboard_controller_F|pressedKey [6]),
+	.datab(gnd),
+	.datac(!\keyboard_controller_F|pressedKey [5]),
+	.datad(!\keyboard_controller_F|pressedKey [7]),
+	.datae(gnd),
+	.dataf(!\keyboard_controller_F|pressedKey [4]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\sevenSegmentDisplay_F_2|WideOr4~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \sevenSegmentDisplay_F_2|WideOr4~0 .extended_lut = "off";
+defparam \sevenSegmentDisplay_F_2|WideOr4~0 .lut_mask = 64'h05FF05FF000A000A;
+defparam \sevenSegmentDisplay_F_2|WideOr4~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X8_Y4_N6
+cyclonev_lcell_comb \sevenSegmentDisplay_F_2|WideOr3~0 (
+// Equation(s):
+// \sevenSegmentDisplay_F_2|WideOr3~0_combout  = ( \keyboard_controller_F|pressedKey [5] & ( (\keyboard_controller_F|pressedKey [7] & (!\keyboard_controller_F|pressedKey [6] $ (!\keyboard_controller_F|pressedKey [4]))) ) ) # ( 
+// !\keyboard_controller_F|pressedKey [5] & ( (!\keyboard_controller_F|pressedKey [6] & ((!\keyboard_controller_F|pressedKey [4]))) # (\keyboard_controller_F|pressedKey [6] & (!\keyboard_controller_F|pressedKey [7] & \keyboard_controller_F|pressedKey [4])) ) 
+// )
+
+	.dataa(!\keyboard_controller_F|pressedKey [7]),
+	.datab(gnd),
+	.datac(!\keyboard_controller_F|pressedKey [6]),
+	.datad(!\keyboard_controller_F|pressedKey [4]),
+	.datae(gnd),
+	.dataf(!\keyboard_controller_F|pressedKey [5]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\sevenSegmentDisplay_F_2|WideOr3~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \sevenSegmentDisplay_F_2|WideOr3~0 .extended_lut = "off";
+defparam \sevenSegmentDisplay_F_2|WideOr3~0 .lut_mask = 64'hF00AF00A05500550;
+defparam \sevenSegmentDisplay_F_2|WideOr3~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X8_Y4_N30
+cyclonev_lcell_comb \sevenSegmentDisplay_F_2|WideOr2~0 (
+// Equation(s):
+// \sevenSegmentDisplay_F_2|WideOr2~0_combout  = (!\keyboard_controller_F|pressedKey [6] & (!\keyboard_controller_F|pressedKey [7] & ((!\keyboard_controller_F|pressedKey [5]) # (\keyboard_controller_F|pressedKey [4])))) # (\keyboard_controller_F|pressedKey 
+// [6] & (\keyboard_controller_F|pressedKey [4] & (\keyboard_controller_F|pressedKey [7] & !\keyboard_controller_F|pressedKey [5])))
+
+	.dataa(!\keyboard_controller_F|pressedKey [6]),
+	.datab(!\keyboard_controller_F|pressedKey [4]),
+	.datac(!\keyboard_controller_F|pressedKey [7]),
+	.datad(!\keyboard_controller_F|pressedKey [5]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\sevenSegmentDisplay_F_2|WideOr2~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \sevenSegmentDisplay_F_2|WideOr2~0 .extended_lut = "off";
+defparam \sevenSegmentDisplay_F_2|WideOr2~0 .lut_mask = 64'hA120A120A120A120;
+defparam \sevenSegmentDisplay_F_2|WideOr2~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X9_Y4_N57
+cyclonev_lcell_comb \sevenSegmentDisplay_F_2|WideOr1~0 (
+// Equation(s):
+// \sevenSegmentDisplay_F_2|WideOr1~0_combout  = ( \keyboard_controller_F|pressedKey [7] & ( (!\keyboard_controller_F|pressedKey [6] & (!\keyboard_controller_F|pressedKey [5] $ (!\keyboard_controller_F|pressedKey [4]))) ) ) # ( 
+// !\keyboard_controller_F|pressedKey [7] & ( (!\keyboard_controller_F|pressedKey [4] & (!\keyboard_controller_F|pressedKey [5])) # (\keyboard_controller_F|pressedKey [4] & ((!\keyboard_controller_F|pressedKey [6]))) ) )
+
+	.dataa(!\keyboard_controller_F|pressedKey [5]),
+	.datab(!\keyboard_controller_F|pressedKey [6]),
+	.datac(!\keyboard_controller_F|pressedKey [4]),
+	.datad(gnd),
+	.datae(!\keyboard_controller_F|pressedKey [7]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\sevenSegmentDisplay_F_2|WideOr1~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \sevenSegmentDisplay_F_2|WideOr1~0 .extended_lut = "off";
+defparam \sevenSegmentDisplay_F_2|WideOr1~0 .lut_mask = 64'hACAC4848ACAC4848;
+defparam \sevenSegmentDisplay_F_2|WideOr1~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X9_Y4_N27
+cyclonev_lcell_comb \sevenSegmentDisplay_F_2|WideOr0~0 (
+// Equation(s):
+// \sevenSegmentDisplay_F_2|WideOr0~0_combout  = ( \keyboard_controller_F|pressedKey [7] & ( \keyboard_controller_F|pressedKey [4] & ( (!\keyboard_controller_F|pressedKey [6] & \keyboard_controller_F|pressedKey [5]) ) ) ) # ( 
+// \keyboard_controller_F|pressedKey [7] & ( !\keyboard_controller_F|pressedKey [4] & ( (\keyboard_controller_F|pressedKey [6] & \keyboard_controller_F|pressedKey [5]) ) ) ) # ( !\keyboard_controller_F|pressedKey [7] & ( !\keyboard_controller_F|pressedKey 
+// [4] & ( !\keyboard_controller_F|pressedKey [6] $ (!\keyboard_controller_F|pressedKey [5]) ) ) )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(!\keyboard_controller_F|pressedKey [6]),
+	.datad(!\keyboard_controller_F|pressedKey [5]),
+	.datae(!\keyboard_controller_F|pressedKey [7]),
+	.dataf(!\keyboard_controller_F|pressedKey [4]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\sevenSegmentDisplay_F_2|WideOr0~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \sevenSegmentDisplay_F_2|WideOr0~0 .extended_lut = "off";
+defparam \sevenSegmentDisplay_F_2|WideOr0~0 .lut_mask = 64'h0FF0000F000000F0;
+defparam \sevenSegmentDisplay_F_2|WideOr0~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N4
+dffeas \keyboard_controller_F|data_pre[3] (
+	.clk(\keyboard_controller_F|flag~q ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_curr [3]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(!\keyboard_controller_F|Equal1~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|data_pre [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|data_pre[3] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|data_pre[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N29
+dffeas \keyboard_controller_F|pressedKey[3] (
+	.clk(\keyboard_controller_F|flag~q ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_pre [3]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\keyboard_controller_F|Equal1~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|pressedKey [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|pressedKey[3] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|pressedKey[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N1
+dffeas \keyboard_controller_F|data_pre[2] (
+	.clk(\keyboard_controller_F|flag~q ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_curr [2]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(!\keyboard_controller_F|Equal1~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|data_pre [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|data_pre[2] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|data_pre[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N26
+dffeas \keyboard_controller_F|pressedKey[2] (
+	.clk(\keyboard_controller_F|flag~q ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_pre [2]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\keyboard_controller_F|Equal1~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|pressedKey [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|pressedKey[2] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|pressedKey[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X9_Y4_N48
+cyclonev_lcell_comb \keyboard_controller_F|data_pre[0]~feeder (
+// Equation(s):
+// \keyboard_controller_F|data_pre[0]~feeder_combout  = ( \keyboard_controller_F|data_curr [0] )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(!\keyboard_controller_F|data_curr [0]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|data_pre[0]~feeder_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|data_pre[0]~feeder .extended_lut = "off";
+defparam \keyboard_controller_F|data_pre[0]~feeder .lut_mask = 64'h00000000FFFFFFFF;
+defparam \keyboard_controller_F|data_pre[0]~feeder .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X9_Y4_N50
+dffeas \keyboard_controller_F|data_pre[0] (
+	.clk(\keyboard_controller_F|flag~q ),
+	.d(\keyboard_controller_F|data_pre[0]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(!\keyboard_controller_F|Equal1~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|data_pre [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|data_pre[0] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|data_pre[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X9_Y4_N42
+cyclonev_lcell_comb \keyboard_controller_F|pressedKey[0]~feeder (
+// Equation(s):
+// \keyboard_controller_F|pressedKey[0]~feeder_combout  = ( \keyboard_controller_F|data_pre [0] )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(!\keyboard_controller_F|data_pre [0]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\keyboard_controller_F|pressedKey[0]~feeder_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \keyboard_controller_F|pressedKey[0]~feeder .extended_lut = "off";
+defparam \keyboard_controller_F|pressedKey[0]~feeder .lut_mask = 64'h00000000FFFFFFFF;
+defparam \keyboard_controller_F|pressedKey[0]~feeder .shared_arith = "off";
+// synopsys translate_on
+
+// Location: FF_X9_Y4_N44
+dffeas \keyboard_controller_F|pressedKey[0] (
+	.clk(\keyboard_controller_F|flag~q ),
+	.d(\keyboard_controller_F|pressedKey[0]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\keyboard_controller_F|Equal1~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|pressedKey [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|pressedKey[0] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|pressedKey[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N22
+dffeas \keyboard_controller_F|data_pre[1] (
+	.clk(\keyboard_controller_F|flag~q ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_curr [1]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(!\keyboard_controller_F|Equal1~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|data_pre [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|data_pre[1] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|data_pre[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X8_Y4_N59
+dffeas \keyboard_controller_F|pressedKey[1] (
+	.clk(\keyboard_controller_F|flag~q ),
+	.d(gnd),
+	.asdata(\keyboard_controller_F|data_pre [1]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\keyboard_controller_F|Equal1~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\keyboard_controller_F|pressedKey [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \keyboard_controller_F|pressedKey[1] .is_wysiwyg = "true";
+defparam \keyboard_controller_F|pressedKey[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LABCELL_X9_Y4_N15
+cyclonev_lcell_comb \sevenSegmentDisplay_F_1|WideOr6~0 (
+// Equation(s):
+// \sevenSegmentDisplay_F_1|WideOr6~0_combout  = ( \keyboard_controller_F|pressedKey [1] & ( ((!\keyboard_controller_F|pressedKey [2]) # (!\keyboard_controller_F|pressedKey [0])) # (\keyboard_controller_F|pressedKey [3]) ) ) # ( 
+// !\keyboard_controller_F|pressedKey [1] & ( (!\keyboard_controller_F|pressedKey [3] & (\keyboard_controller_F|pressedKey [2])) # (\keyboard_controller_F|pressedKey [3] & ((!\keyboard_controller_F|pressedKey [2]) # (\keyboard_controller_F|pressedKey [0]))) 
+// ) )
+
+	.dataa(!\keyboard_controller_F|pressedKey [3]),
+	.datab(!\keyboard_controller_F|pressedKey [2]),
+	.datac(!\keyboard_controller_F|pressedKey [0]),
+	.datad(gnd),
+	.datae(!\keyboard_controller_F|pressedKey [1]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\sevenSegmentDisplay_F_1|WideOr6~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \sevenSegmentDisplay_F_1|WideOr6~0 .extended_lut = "off";
+defparam \sevenSegmentDisplay_F_1|WideOr6~0 .lut_mask = 64'h6767FDFD6767FDFD;
+defparam \sevenSegmentDisplay_F_1|WideOr6~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X8_Y4_N27
+cyclonev_lcell_comb \sevenSegmentDisplay_F_1|WideOr5~0 (
+// Equation(s):
+// \sevenSegmentDisplay_F_1|WideOr5~0_combout  = ( \keyboard_controller_F|pressedKey [2] & ( (\keyboard_controller_F|pressedKey [0] & (!\keyboard_controller_F|pressedKey [1] $ (!\keyboard_controller_F|pressedKey [3]))) ) ) # ( 
+// !\keyboard_controller_F|pressedKey [2] & ( (!\keyboard_controller_F|pressedKey [3] & ((\keyboard_controller_F|pressedKey [0]) # (\keyboard_controller_F|pressedKey [1]))) ) )
+
+	.dataa(!\keyboard_controller_F|pressedKey [1]),
+	.datab(!\keyboard_controller_F|pressedKey [0]),
+	.datac(gnd),
+	.datad(!\keyboard_controller_F|pressedKey [3]),
+	.datae(gnd),
+	.dataf(!\keyboard_controller_F|pressedKey [2]),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\sevenSegmentDisplay_F_1|WideOr5~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \sevenSegmentDisplay_F_1|WideOr5~0 .extended_lut = "off";
+defparam \sevenSegmentDisplay_F_1|WideOr5~0 .lut_mask = 64'h7700770011221122;
+defparam \sevenSegmentDisplay_F_1|WideOr5~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X8_Y4_N24
+cyclonev_lcell_comb \sevenSegmentDisplay_F_1|WideOr4~0 (
+// Equation(s):
+// \sevenSegmentDisplay_F_1|WideOr4~0_combout  = (!\keyboard_controller_F|pressedKey [1] & ((!\keyboard_controller_F|pressedKey [2] & (\keyboard_controller_F|pressedKey [0])) # (\keyboard_controller_F|pressedKey [2] & ((!\keyboard_controller_F|pressedKey 
+// [3]))))) # (\keyboard_controller_F|pressedKey [1] & (\keyboard_controller_F|pressedKey [0] & (!\keyboard_controller_F|pressedKey [3])))
+
+	.dataa(!\keyboard_controller_F|pressedKey [1]),
+	.datab(!\keyboard_controller_F|pressedKey [0]),
+	.datac(!\keyboard_controller_F|pressedKey [3]),
+	.datad(!\keyboard_controller_F|pressedKey [2]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\sevenSegmentDisplay_F_1|WideOr4~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \sevenSegmentDisplay_F_1|WideOr4~0 .extended_lut = "off";
+defparam \sevenSegmentDisplay_F_1|WideOr4~0 .lut_mask = 64'h32B032B032B032B0;
+defparam \sevenSegmentDisplay_F_1|WideOr4~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X9_Y4_N36
+cyclonev_lcell_comb \sevenSegmentDisplay_F_1|WideOr3~0 (
+// Equation(s):
+// \sevenSegmentDisplay_F_1|WideOr3~0_combout  = ( \keyboard_controller_F|pressedKey [1] & ( (!\keyboard_controller_F|pressedKey [0] & (\keyboard_controller_F|pressedKey [3] & !\keyboard_controller_F|pressedKey [2])) # (\keyboard_controller_F|pressedKey [0] 
+// & ((\keyboard_controller_F|pressedKey [2]))) ) ) # ( !\keyboard_controller_F|pressedKey [1] & ( (!\keyboard_controller_F|pressedKey [3] & (!\keyboard_controller_F|pressedKey [0] $ (!\keyboard_controller_F|pressedKey [2]))) ) )
+
+	.dataa(gnd),
+	.datab(!\keyboard_controller_F|pressedKey [0]),
+	.datac(!\keyboard_controller_F|pressedKey [3]),
+	.datad(!\keyboard_controller_F|pressedKey [2]),
+	.datae(!\keyboard_controller_F|pressedKey [1]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\sevenSegmentDisplay_F_1|WideOr3~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \sevenSegmentDisplay_F_1|WideOr3~0 .extended_lut = "off";
+defparam \sevenSegmentDisplay_F_1|WideOr3~0 .lut_mask = 64'h30C00C3330C00C33;
+defparam \sevenSegmentDisplay_F_1|WideOr3~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X8_Y4_N57
+cyclonev_lcell_comb \sevenSegmentDisplay_F_1|WideOr2~0 (
+// Equation(s):
+// \sevenSegmentDisplay_F_1|WideOr2~0_combout  = (!\keyboard_controller_F|pressedKey [3] & (!\keyboard_controller_F|pressedKey [0] & (!\keyboard_controller_F|pressedKey [2] & \keyboard_controller_F|pressedKey [1]))) # (\keyboard_controller_F|pressedKey [3] & 
+// (\keyboard_controller_F|pressedKey [2] & ((!\keyboard_controller_F|pressedKey [0]) # (\keyboard_controller_F|pressedKey [1]))))
+
+	.dataa(!\keyboard_controller_F|pressedKey [3]),
+	.datab(!\keyboard_controller_F|pressedKey [0]),
+	.datac(!\keyboard_controller_F|pressedKey [2]),
+	.datad(!\keyboard_controller_F|pressedKey [1]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\sevenSegmentDisplay_F_1|WideOr2~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \sevenSegmentDisplay_F_1|WideOr2~0 .extended_lut = "off";
+defparam \sevenSegmentDisplay_F_1|WideOr2~0 .lut_mask = 64'h0485048504850485;
+defparam \sevenSegmentDisplay_F_1|WideOr2~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: MLABCELL_X8_Y4_N54
+cyclonev_lcell_comb \sevenSegmentDisplay_F_1|WideOr1~0 (
+// Equation(s):
+// \sevenSegmentDisplay_F_1|WideOr1~0_combout  = (!\keyboard_controller_F|pressedKey [3] & (\keyboard_controller_F|pressedKey [2] & (!\keyboard_controller_F|pressedKey [0] $ (!\keyboard_controller_F|pressedKey [1])))) # (\keyboard_controller_F|pressedKey [3] 
+// & ((!\keyboard_controller_F|pressedKey [0] & ((\keyboard_controller_F|pressedKey [2]))) # (\keyboard_controller_F|pressedKey [0] & (\keyboard_controller_F|pressedKey [1]))))
+
+	.dataa(!\keyboard_controller_F|pressedKey [3]),
+	.datab(!\keyboard_controller_F|pressedKey [0]),
+	.datac(!\keyboard_controller_F|pressedKey [1]),
+	.datad(!\keyboard_controller_F|pressedKey [2]),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\sevenSegmentDisplay_F_1|WideOr1~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \sevenSegmentDisplay_F_1|WideOr1~0 .extended_lut = "off";
+defparam \sevenSegmentDisplay_F_1|WideOr1~0 .lut_mask = 64'h016D016D016D016D;
+defparam \sevenSegmentDisplay_F_1|WideOr1~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: LABCELL_X9_Y4_N30
+cyclonev_lcell_comb \sevenSegmentDisplay_F_1|WideOr0~0 (
+// Equation(s):
+// \sevenSegmentDisplay_F_1|WideOr0~0_combout  = ( \keyboard_controller_F|pressedKey [1] & ( (\keyboard_controller_F|pressedKey [0] & (\keyboard_controller_F|pressedKey [3] & !\keyboard_controller_F|pressedKey [2])) ) ) # ( !\keyboard_controller_F|pressedKey 
+// [1] & ( (!\keyboard_controller_F|pressedKey [0] & (!\keyboard_controller_F|pressedKey [3] & \keyboard_controller_F|pressedKey [2])) # (\keyboard_controller_F|pressedKey [0] & (!\keyboard_controller_F|pressedKey [3] $ (\keyboard_controller_F|pressedKey 
+// [2]))) ) )
+
+	.dataa(gnd),
+	.datab(!\keyboard_controller_F|pressedKey [0]),
+	.datac(!\keyboard_controller_F|pressedKey [3]),
+	.datad(!\keyboard_controller_F|pressedKey [2]),
+	.datae(!\keyboard_controller_F|pressedKey [1]),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\sevenSegmentDisplay_F_1|WideOr0~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \sevenSegmentDisplay_F_1|WideOr0~0 .extended_lut = "off";
+defparam \sevenSegmentDisplay_F_1|WideOr0~0 .lut_mask = 64'h30C3030030C30300;
+defparam \sevenSegmentDisplay_F_1|WideOr0~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: IOIBUF_X32_Y0_N1
+cyclonev_io_ibuf \CLK~input (
+	.i(CLK),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\CLK~input_o ));
+// synopsys translate_off
+defparam \CLK~input .bus_hold = "false";
+defparam \CLK~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LABCELL_X45_Y55_N3
+cyclonev_lcell_comb \~QUARTUS_CREATED_GND~I (
+// Equation(s):
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\~QUARTUS_CREATED_GND~I_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \~QUARTUS_CREATED_GND~I .extended_lut = "off";
+defparam \~QUARTUS_CREATED_GND~I .lut_mask = 64'h0000000000000000;
+defparam \~QUARTUS_CREATED_GND~I .shared_arith = "off";
+// synopsys translate_on
+
+endmodule

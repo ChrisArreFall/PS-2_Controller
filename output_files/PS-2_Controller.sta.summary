@@ -1,0 +1,101 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'keyboard_controller:keyboard_controller_F|flag'
+Slack : -10.455
+TNS   : -165.389
+
+Type  : Slow 1100mV 85C Model Setup 'PS2_CLK'
+Slack : -9.017
+TNS   : -35.651
+
+Type  : Slow 1100mV 85C Model Hold 'PS2_CLK'
+Slack : 0.216
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'keyboard_controller:keyboard_controller_F|flag'
+Slack : 0.789
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'PS2_CLK'
+Slack : -0.394
+TNS   : -9.111
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'keyboard_controller:keyboard_controller_F|flag'
+Slack : -0.394
+TNS   : -8.266
+
+Type  : Slow 1100mV 0C Model Setup 'keyboard_controller:keyboard_controller_F|flag'
+Slack : -10.118
+TNS   : -160.294
+
+Type  : Slow 1100mV 0C Model Setup 'PS2_CLK'
+Slack : -8.763
+TNS   : -34.577
+
+Type  : Slow 1100mV 0C Model Hold 'PS2_CLK'
+Slack : 0.278
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'keyboard_controller:keyboard_controller_F|flag'
+Slack : 0.729
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'PS2_CLK'
+Slack : -0.394
+TNS   : -9.617
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'keyboard_controller:keyboard_controller_F|flag'
+Slack : -0.394
+TNS   : -8.169
+
+Type  : Fast 1100mV 85C Model Setup 'keyboard_controller:keyboard_controller_F|flag'
+Slack : -6.107
+TNS   : -96.553
+
+Type  : Fast 1100mV 85C Model Setup 'PS2_CLK'
+Slack : -5.143
+TNS   : -15.328
+
+Type  : Fast 1100mV 85C Model Hold 'PS2_CLK'
+Slack : 0.139
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'keyboard_controller:keyboard_controller_F|flag'
+Slack : 0.418
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'PS2_CLK'
+Slack : -0.327
+TNS   : -5.840
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'keyboard_controller:keyboard_controller_F|flag'
+Slack : 0.118
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'keyboard_controller:keyboard_controller_F|flag'
+Slack : -5.802
+TNS   : -91.791
+
+Type  : Fast 1100mV 0C Model Setup 'PS2_CLK'
+Slack : -4.675
+TNS   : -12.811
+
+Type  : Fast 1100mV 0C Model Hold 'PS2_CLK'
+Slack : 0.146
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'keyboard_controller:keyboard_controller_F|flag'
+Slack : 0.355
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'PS2_CLK'
+Slack : -0.339
+TNS   : -6.141
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'keyboard_controller:keyboard_controller_F|flag'
+Slack : 0.131
+TNS   : 0.000
+
+------------------------------------------------------------

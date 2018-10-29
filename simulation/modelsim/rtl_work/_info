@@ -1,0 +1,59 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/simulation/modelsim
+vkb_controller_tb
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+!s110 1540790164
+!i10b 1
+!s100 2TNfFGW`C:dQ6iag8ghE=3
+I[9D3??c0PFYY49fH:PKX80
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 kb_controller_tb_sv_unit
+S1
+R0
+w1540789998
+8C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/kb_controller_tb.sv
+FC:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/kb_controller_tb.sv
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1540790164.000000
+!s107 C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/kb_controller_tb.sv|
+!s90 -reportprogress|300|-work|work|C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/kb_controller_tb.sv|
+!i113 1
+Z4 o-work work
+Z5 tCvgOpt 0
+vtestKeyboard
+R1
+!s110 1540790165
+!i10b 1
+!s100 IkcX;62`lgT_=5_hTcbOW0
+I41J_IWfUkWPl68QBCJjKO0
+R2
+!s105 testKeyboard_sv_unit
+S1
+R0
+w1540788462
+8C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/testKeyboard.sv
+FC:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/testKeyboard.sv
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1540790165.000000
+!s107 C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/testKeyboard.sv|
+!s90 -reportprogress|300|-work|work|C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/testKeyboard.sv|
+!i113 1
+R4
+R5
+ntest@keyboard

@@ -1,5 +1,5 @@
-Analysis & Elaboration report for PS-2_Controller
-Tue Oct 16 03:44:50 2018
+Analysis & Synthesis report for PS-2_Controller
+Sun Oct 28 23:28:44 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -7,10 +7,18 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Elaboration Summary
-  3. Parallel Compilation
-  4. Analysis & Elaboration Settings
-  5. Analysis & Elaboration Messages
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Inverted Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -33,46 +41,35 @@ refer to the applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                              ;
-+-------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Tue Oct 16 03:44:50 2018       ;
-; Quartus Prime Version         ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
-; Revision Name                 ; PS-2_Controller                             ;
-; Top-level Entity Name         ; testKeyboard                                ;
-; Family                        ; Cyclone V                                   ;
-; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
-; Total registers               ; N/A until Partition Merge                   ;
-; Total pins                    ; N/A until Partition Merge                   ;
-; Total virtual pins            ; N/A until Partition Merge                   ;
-; Total block memory bits       ; N/A until Partition Merge                   ;
-; Total PLLs                    ; N/A until Partition Merge                   ;
-; Total DLLs                    ; N/A until Partition Merge                   ;
-+-------------------------------+---------------------------------------------+
-
-
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sun Oct 28 23:28:44 2018       ;
+; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
+; Revision Name                   ; PS-2_Controller                             ;
+; Top-level Entity Name           ; testKeyboard                                ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 29                                          ;
+; Total pins                      ; 17                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                                           ;
+; Analysis & Synthesis Settings                                                                                             ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                          ; 5CGXFC7C6U19C6     ;                    ;
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
 ; Top-level entity name                                                           ; testKeyboard       ; PS-2_Controller    ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
@@ -154,29 +151,185 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+---------------------------------+
-; Analysis & Elaboration Messages ;
-+---------------------------------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                        ;
++----------------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path             ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                        ; Library ;
++----------------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
+; ../../7SegmentDisplay/sevenSegmentDisplay.sv ; yes             ; User SystemVerilog HDL File  ; C:/Users/Chris/Documents/TEC/Taller/7SegmentDisplay/sevenSegmentDisplay.sv          ;         ;
+; keyboard_controller.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/keyboard_controller.sv ;         ;
+; testKeyboard.sv                              ; yes             ; User SystemVerilog HDL File  ; C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/testKeyboard.sv        ;         ;
++----------------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                  ;
++---------------------------------------------+------------------------------------------------+
+; Resource                                    ; Usage                                          ;
++---------------------------------------------+------------------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 20                                             ;
+;                                             ;                                                ;
+; Combinational ALUT usage for logic          ; 29                                             ;
+;     -- 7 input functions                    ; 0                                              ;
+;     -- 6 input functions                    ; 8                                              ;
+;     -- 5 input functions                    ; 2                                              ;
+;     -- 4 input functions                    ; 19                                             ;
+;     -- <=3 input functions                  ; 0                                              ;
+;                                             ;                                                ;
+; Dedicated logic registers                   ; 29                                             ;
+;                                             ;                                                ;
+; I/O pins                                    ; 17                                             ;
+;                                             ;                                                ;
+; Total DSP Blocks                            ; 0                                              ;
+;                                             ;                                                ;
+; Maximum fan-out node                        ; keyboard_controller:keyboard_controller_F|flag ;
+; Maximum fan-out                             ; 17                                             ;
+; Total fan-out                               ; 239                                            ;
+; Average fan-out                             ; 2.60                                           ;
++---------------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                        ;
++--------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                       ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                       ; Entity Name         ; Library Name ;
++--------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------+---------------------+--------------+
+; |testKeyboard                                    ; 29 (0)              ; 29 (0)                    ; 0                 ; 0          ; 17   ; 0            ; |testKeyboard                                             ; testKeyboard        ; work         ;
+;    |keyboard_controller:keyboard_controller_F|   ; 15 (15)             ; 29 (29)                   ; 0                 ; 0          ; 0    ; 0            ; |testKeyboard|keyboard_controller:keyboard_controller_F   ; keyboard_controller ; work         ;
+;    |sevenSegmentDisplay:sevenSegmentDisplay_F_1| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |testKeyboard|sevenSegmentDisplay:sevenSegmentDisplay_F_1 ; sevenSegmentDisplay ; work         ;
+;    |sevenSegmentDisplay:sevenSegmentDisplay_F_2| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |testKeyboard|sevenSegmentDisplay:sevenSegmentDisplay_F_2 ; sevenSegmentDisplay ; work         ;
++--------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 29    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 16    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------+
+; Inverted Register Statistics                                      ;
++---------------------------------------------------------+---------+
+; Inverted Register                                       ; Fan out ;
++---------------------------------------------------------+---------+
+; keyboard_controller:keyboard_controller_F|pressedKey[4] ; 7       ;
+; keyboard_controller:keyboard_controller_F|pressedKey[5] ; 7       ;
+; keyboard_controller:keyboard_controller_F|pressedKey[6] ; 7       ;
+; keyboard_controller:keyboard_controller_F|pressedKey[7] ; 7       ;
+; keyboard_controller:keyboard_controller_F|data_pre[4]   ; 1       ;
+; keyboard_controller:keyboard_controller_F|data_curr[4]  ; 3       ;
+; keyboard_controller:keyboard_controller_F|data_curr[5]  ; 3       ;
+; keyboard_controller:keyboard_controller_F|data_curr[6]  ; 3       ;
+; keyboard_controller:keyboard_controller_F|data_curr[7]  ; 3       ;
+; keyboard_controller:keyboard_controller_F|data_pre[5]   ; 1       ;
+; keyboard_controller:keyboard_controller_F|data_pre[6]   ; 1       ;
+; keyboard_controller:keyboard_controller_F|data_pre[7]   ; 1       ;
+; keyboard_controller:keyboard_controller_F|b[0]          ; 13      ;
+; Total number of inverted registers = 13                 ;         ;
++---------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |testKeyboard|keyboard_controller:keyboard_controller_F|b[1] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 29                          ;
+;     ENA               ; 16                          ;
+;     plain             ; 13                          ;
+; arriav_lcell_comb     ; 31                          ;
+;     normal            ; 31                          ;
+;         1 data inputs ; 2                           ;
+;         4 data inputs ; 19                          ;
+;         5 data inputs ; 2                           ;
+;         6 data inputs ; 8                           ;
+; boundary_port         ; 17                          ;
+;                       ;                             ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.15                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Elaboration
+Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Tue Oct 16 03:44:29 2018
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PS-2_Controller -c PS-2_Controller --analysis_and_elaboration
+    Info: Processing started: Sun Oct 28 23:28:20 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PS-2_Controller -c PS-2_Controller
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/chris/documents/tec/taller/7segmentdisplay/sevensegmentdisplay.sv
+    Info (12023): Found entity 1: sevenSegmentDisplay File: C:/Users/Chris/Documents/TEC/Taller/7SegmentDisplay/sevenSegmentDisplay.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file keyboard_controller.sv
     Info (12023): Found entity 1: keyboard_controller File: C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/keyboard_controller.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file testkeyboard.sv
     Info (12023): Found entity 1: testKeyboard File: C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/testKeyboard.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file kb_controller_tb.sv
+    Info (12023): Found entity 1: kb_controller_tb File: C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/kb_controller_tb.sv Line: 1
 Info (12127): Elaborating entity "testKeyboard" for the top level hierarchy
-Info (12128): Elaborating entity "keyboard_controller" for hierarchy "keyboard_controller:keyboard_controller_F" File: C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/testKeyboard.sv Line: 13
-Warning (10230): Verilog HDL assignment warning at keyboard_controller.sv(42): truncated value with size 32 to match size of target (8) File: C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/keyboard_controller.sv Line: 42
-Warning (10230): Verilog HDL assignment warning at keyboard_controller.sv(61): truncated value with size 32 to match size of target (12) File: C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/keyboard_controller.sv Line: 61
-Warning (10230): Verilog HDL assignment warning at keyboard_controller.sv(81): truncated value with size 32 to match size of target (4) File: C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/keyboard_controller.sv Line: 81
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4792 megabytes
-    Info: Processing ended: Tue Oct 16 03:44:50 2018
-    Info: Elapsed time: 00:00:21
-    Info: Total CPU time (on all processors): 00:00:47
+Info (12128): Elaborating entity "keyboard_controller" for hierarchy "keyboard_controller:keyboard_controller_F" File: C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/testKeyboard.sv Line: 16
+Warning (10230): Verilog HDL assignment warning at keyboard_controller.sv(32): truncated value with size 32 to match size of target (4) File: C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/keyboard_controller.sv Line: 32
+Info (12128): Elaborating entity "sevenSegmentDisplay" for hierarchy "sevenSegmentDisplay:sevenSegmentDisplay_F_1" File: C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/testKeyboard.sv Line: 17
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "CLK" File: C:/Users/Chris/Documents/TEC/Taller/Proyecto/PS-2_Controller/testKeyboard.sv Line: 1
+Info (21057): Implemented 62 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 14 output pins
+    Info (21061): Implemented 45 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4827 megabytes
+    Info: Processing ended: Sun Oct 28 23:28:44 2018
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:50
 
 
